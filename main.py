@@ -37,11 +37,14 @@ class Student:
         self.finished_courses.append(course_name)
 
     def grade_average(self):
+        counter = 0
         res = 0
         for course in self.courses:
             if course in self.grades:
                 res += sum(self.grades[course])/len(self.grades[course])
-        return round(res,2)
+                counter += 1
+        res = round(res/counter,2)
+        return res
 
     def __str__(self):
         result = f"""{Mentor.__str__(self)}
